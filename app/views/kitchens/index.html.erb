@@ -1,6 +1,18 @@
 <h1>Kitchens</h1>
-<% @kitchens.each do |kitchen| %>
-  <%= kitchen.name %>
-  <%= kitchen.location %>
-  <%= kitchen.price %>
-<% end %>
+
+<div class="cards row">
+
+  <% @kitchens.each do |kitchen| %>
+    <div class="card-kitchen col-3">
+      <%= cl_image_tag kitchen.photo, height: 100, width: 100, crop: :fill %>
+      <div class="card-kitchen-infos">
+        <div>
+          <h2><%= kitchen.name %></h2>
+          <p><%= kitchen.description %></p>
+        </div>
+        <h2 class="card-kitchen-pricing"><%= kitchen.price %> <i class="fas fa-euro-sign"></i></h2>
+      </div>
+    </div>
+  <% end %>
+</div>
+
