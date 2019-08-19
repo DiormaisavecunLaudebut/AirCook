@@ -12,8 +12,12 @@
   <body>
      <p class="notice"><%= notice %></p>
      <p class="alert"><%= alert %></p>
+     <%= render 'layouts/navbar' %>
     <%= yield %>
+
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
+   
+    <%= render 'layouts/footer' %>
   </body>
 </html>
