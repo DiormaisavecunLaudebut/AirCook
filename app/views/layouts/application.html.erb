@@ -10,10 +10,15 @@
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body>
-     <p class="notice"><%= notice %></p>
-     <p class="alert"><%= alert %></p>
+    <p class="notice m-0"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <%= render 'shared/flashes' %>
+    <%= render 'navbar' %>
     <%= yield %>
+
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
+
+    <%= render 'layouts/footer' %>
   </body>
 </html>
