@@ -1,0 +1,23 @@
+<div class="container">
+  <h1 class="text-center">Tell us about your kitchen !</h1>
+  <%= simple_form_for @kitchen do |f| %>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :location %>
+    <%= f.input :price %>
+    <div class="d-flex justify-content-around">
+      <%= f.input :oven %>
+      <%= f.input :microwave %>
+      <%= f.input :thermomix %>
+      <%= f.input :ricecooker %>
+      <%= f.input :pastry_set %>
+    </div>
+    <%= f.input :other %>
+    <%= f.input :photo %>
+    <%= f.input :photo_cache, as: :hidden %>
+    <div class="d-flex justify-content-end">
+      <%= f.submit 'Confirm', class: 'btn btn-primary' %>
+
+    </div>
+  <% end %>
+</div>
