@@ -7,15 +7,18 @@
               <%= cl_image_tag kitchen.photo, height: 700, width: 700, crop: :fill %>
             <div class="card-kitchen-infos">
               <div>
+                <% if policy(kitchen).show? %>
                 <h2><%= link_to "#{kitchen.name}", kitchen_path(kitchen), {:style=>'color:#484848; text-decoration: none', :class => "css_class"} %></h2>
+                <% end %>
                 <p style="text-align: justify;"><%= kitchen.description %></p>
               </div>
               <h2 class="card-kitchen-pricing" style="display: inherit"><%= kitchen.price %> <i class="fas fa-euro-sign"></i></h2>
             </div>
+            <% if policy(kitchen).show? %>
             <%= link_to "", kitchen_path(kitchen), class: "card-link" %>
+            <% end %>
           </div>
       <% end %>
     </div>
 </div>
-
 
