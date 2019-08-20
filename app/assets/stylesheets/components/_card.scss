@@ -10,12 +10,25 @@
   height: 200px;
   width: 100%;
   object-fit: cover;
+  position: relative;
 }
+
+.fa-heart {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 24px;
+}
+
 
 .card-kitchen h2 {
   font-size: 20px;
   font-weight: bold;
   margin: 0;
+}
+
+.card-link:hover {
+  background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.1));
 }
 
 .card-kitchen p {
