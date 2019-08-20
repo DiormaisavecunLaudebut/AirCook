@@ -7,6 +7,19 @@
 @import "kitchen-description";
 @import "bookingcard";
 
+@import "bookingcard";
+
+@import "booking-form";
+
+
 .content {
   display: flex;
+}
+
+abbr[title="required"] {
+  display: none;
+}
+
+body {
+  background-color: white;
 }

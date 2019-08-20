@@ -1,0 +1,13 @@
+<div class="p-3 form-booking-control">
+  <h5 class='border-bottom pb-3'>Add dates to display price</h5>
+  <%= simple_form_for [@kitchen, @booking] do |f| %>
+    <%= f.input :start_date, label: "From:" %>
+    <%= f.input :end_date, label: "To:" %>
+    <%= f.submit "Book me!", class: 'btn btn-lior book-btn my-1' %>
+  <% end %>
+  <div class="pr-3 mt-3">
+    <p class="border-top pt-3" id="kitchen-attention">This kitchen attracts a lot of attention!</p>
+    <p id="fake-news">This post has been viewed more than 500 times during this week</p>
+  </div>
+  <%= cl_image_tag 'https://a0.muscache.com/airbnb/static/packages/icon-uc-light-bulb.1ffc0407.gif', class: "la-tuerie" %>
+</div>
