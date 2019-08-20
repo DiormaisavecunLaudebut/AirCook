@@ -58,3 +58,21 @@
   left: 0;
   height: 200px;
 }
+
+@media (min-width: 100px) and (max-width: 750px) {
+  .card-kitchen-index {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 751px) {
+  .card-kitchen-index {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1200px) {
+  .card-kitchen-index {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
