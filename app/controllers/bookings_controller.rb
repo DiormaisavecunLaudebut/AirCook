@@ -8,22 +8,20 @@ class BookingsController < ApplicationController
   end
 
   def create
-    booking = booking.new(booking_params)
-    booking.user = current_user
-    booking.save ? (redirect_to  bookings_path) : (render 'new')
+    @booking = Booking.new(booking_params)
+    @booking.user = current_user
+    @booking.save ? (redirect_to bookings_path) : (render 'new')
   end
 
   def destroy
-  	@booking = Booking.find(params[:id]
-    booking.user = current_user
+    @booking = Booking.find(params[:id])
     @booking.destroy
     redirect_to bookings_path
-
   end
 
-  private 
+  private
 
   def booking_params
-  	params.require(:booking).permit(:start_date, :end_date)
+    params.require(:booking).permit(:start_date, :end_date)
   end
 end
