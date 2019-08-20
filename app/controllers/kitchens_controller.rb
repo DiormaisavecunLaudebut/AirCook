@@ -33,6 +33,11 @@ class KitchensController < ApplicationController
     redirect_to kitchens_path
   end
 
+  def dashboard
+    @bookings = current_user.bookings
+  end
+
+
   private
 
   def kitchen_params
