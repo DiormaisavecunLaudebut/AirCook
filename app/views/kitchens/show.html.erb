@@ -2,7 +2,7 @@
 url('<%= cl_image_path @kitchen.photo, height: 800, width: 1200, crop: :fill %>')">
 </div>
 <div class="container">
-  <div class="kitchen-main-card d-flex mt-3 align-items-center">
+  <div class="kitchen-main-card d-flex mt-3 align-items-center justify-content-between" style="width:60%">
     <h2><%= @kitchen.name %></h2>
     <div class="user-infos ml-5 text-center">
       <%= cl_image_tag @kitchen.user.photo, height: 300, width: 500, class: "avatar-large" %>
