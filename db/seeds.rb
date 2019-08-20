@@ -4,7 +4,9 @@ require 'faker'
 
 luck = [true, false]
 profil_pic = "https://content-static.upwork.com/uploads/2014/10/01073427/profilephoto1.jpg"
-description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo fugiat beatae aliquam suscipit vero error ipsum excepturi obcaecati est molestias itaque dolore consequuntur temporibus odit fuga, iste sint officia!"
+
+description = "Je m'appelle Maurice, et je mets ma cuisine à louer tout équipement compris. Ma femme peut faire la vaisselle."
+
 
 url = "https://www.gettyimages.fr/photos/cuisine-moderne?mediatype=photography&phrase=cuisine%20moderne&sort=mostpopular"
 
@@ -18,6 +20,8 @@ end
 
 puts "Creating 30 users and kitchens, each user being associated to a kitchen"
 images.first(30).each do |img|
+  puts "Lior J'adore"
+  print`clear`
   user = User.new(
     email: Faker::Internet.email,
     password: "DiormaisavecunLaudebut",
@@ -29,7 +33,7 @@ images.first(30).each do |img|
     location: Faker::Address.street_address,
     description: description,
     price: (5..20).to_a.sample,
-    name: Faker::Book.title,
+    name: "Amazing kitchen designed by Pablo, all equipped!",
     oven: luck.sample,
     microwave: luck.sample,
     thermomix: luck.sample,

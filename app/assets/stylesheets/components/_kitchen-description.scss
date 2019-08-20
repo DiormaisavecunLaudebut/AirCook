@@ -1,0 +1,37 @@
+.main-image {
+  width: 100%;
+  height: 50vh;
+  background-position: center;
+}
+
+.kitchen-main-card {
+  h2 {color:#484848;font-weight: 700;}
+  p {color:#767676;font-size:14px;}
+}
+
+.kitchen-map {
+  width: 100%;
+  height: 200px;
+  background-position: center;
+}
+
+.none {
+  text-decoration: line-through;
+}
+
+.kitchen-equipment {
+  align-items: center;
+  margin-bottom: 20px;
+  p {
+    margin-bottom: 0px;
+    margin-left: 8px;
+    font-size: 16px;
+  }
+  img {
+    filter: contrast(0.4);
+  }
+}
+
+.kitchen-all p {
+  color: #484848;
+}
