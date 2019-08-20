@@ -5,6 +5,7 @@ require 'faker'
 luck = [true, false]
 profil_pic = "https://content-static.upwork.com/uploads/2014/10/01073427/profilephoto1.jpg"
 description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo fugiat beatae aliquam suscipit vero error ipsum excepturi obcaecati est molestias itaque dolore consequuntur temporibus odit fuga, iste sint officia!"
+
 url = "https://www.gettyimages.fr/photos/cuisine-moderne?mediatype=photography&phrase=cuisine%20moderne&sort=mostpopular"
 
 images = []

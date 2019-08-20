@@ -26,7 +26,8 @@ class KitchensController < ApplicationController
       :thermomix,
       :ricecooker,
       :pastry_set,
-      :other
+      :other,
+      :photo
     )
   end
 end
