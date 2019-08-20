@@ -1,18 +1,21 @@
-<h1>Kitchens</h1>
+<h1 class="text-center" style="padding-top: 10px">Kitchens</h1>
 
-<div class="cards row">
-
-  <% @kitchens.each do |kitchen| %>
-    <div class="card-kitchen col-3">
-      <%= cl_image_tag kitchen.photo, height: 100, width: 100, crop: :fill %>
-      <div class="card-kitchen-infos">
-        <div>
-          <h2><%= kitchen.name %></h2>
-          <p><%= kitchen.description %></p>
-        </div>
-        <h2 class="card-kitchen-pricing"><%= kitchen.price %> <i class="fas fa-euro-sign"></i></h2>
-      </div>
+<div class="content">
+    <div class="card-kitchen-index">
+      <% @kitchens.each do |kitchen| %>
+          <div class="card-kitchen" id="card-kitchen-index-width">
+              <%= cl_image_tag kitchen.photo, height: 700, width: 700, crop: :fill %>
+            <div class="card-kitchen-infos">
+              <div>
+                <h2><%= link_to "#{kitchen.name}", kitchen_path(kitchen), {:style=>'color:#484848; text-decoration: none', :class => "css_class"} %></h2>
+                <p style="text-align: justify;"><%= kitchen.description %></p>
+              </div>
+              <h2 class="card-kitchen-pricing" style="display: inherit"><%= kitchen.price %> <i class="fas fa-euro-sign"></i></h2>
+            </div>
+            <%= link_to "", kitchen_path(kitchen), class: "card-link" %>
+          </div>
+      <% end %>
     </div>
-  <% end %>
 </div>
+
 
