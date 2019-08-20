@@ -13,6 +13,10 @@ class KitchensController < ApplicationController
     kitchen.save ? (redirect_to kitchen_path(kitchen)) : (render 'new')
   end
 
+  def show
+    @kitchen = Kitchen.find(params[:id])
+  end
+
   private
 
   def kitchen_params
