@@ -3,14 +3,17 @@ class BookingsController < ApplicationController
     @bookings = Booking.all
   end
 
-  def new
-    @booking = Booking.new
-  end
-
   def create
     @booking = Booking.new(booking_params)
+    @booking.kitchen = Kitchen.find(params[:kitchen_id])
     @booking.user = current_user
-    @booking.save ? (redirect_to bookings_path) : (render 'new')
+    authorize @booking
+    if @booking.save
+      flash[:alert] = "Kitchen booked, bon appétit!"
+      (redirect_to kitchens_path)
+    else
+      (render 'new')
+    end
   end
 
   def destroy
