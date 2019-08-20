@@ -2,32 +2,68 @@
 url('<%= cl_image_path @kitchen.photo, height: 800, width: 1200, crop: :fill %>')">
 </div>
 <div class="container">
-  <div class="kitchen-main-card d-flex mt-3">
+  <div class="kitchen-main-card d-flex mt-3 align-items-center">
     <h2><%= @kitchen.name %></h2>
     <div class="user-infos ml-5 text-center">
       <%= cl_image_tag @kitchen.user.photo, height: 300, width: 500, class: "avatar-large" %>
       <p><%= @kitchen.user.username %></p>
     </div>
   </div>
-  <div class="d-flex">
+  <div class="d-flex kitchen-all">
     <div>
       <div class="kitchen-map" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)),
     url('<%= cl_image_path 'map', height: 800, width: 1200, crop: :fill %>')">
       </div>
       <p class="border-bottom pb-3 mt-3"><%= @kitchen.description %></p>
       <p><strong>Equipments</strong></p>
-      <div class="d-flex">
+      <div class="d-flex mt-4">
         <div>
-
+          <div class="d-flex kitchen-equipment">
+            <%= cl_image_tag 'oven', height: 15, height: 25, crop: :fill %>
+            <% if @kitchen.oven? %>
+              <p>oven</p>
+            <% else %>
+              <p class="none">oven</p>
+            <% end %>
+          </div>
+          <div class="d-flex kitchen-equipment">
+            <%= cl_image_tag 'microwave', height: 15, height: 25, crop: :fill %>
+            <% if @kitchen.microwave? %>
+              <p>microwave</p>
+            <% else %>
+              <p class="none">microwave</p>
+            <% end %>
+          </div>
+          <div class="d-flex kitchen-equipment">
+            <%= cl_image_tag 'robot-cuisine', height: 15, height: 25, crop: :fill %>
+            <% if @kitchen.thermomix? %>
+              <p>thermomix</p>
+            <% else %>
+              <p class="none">thermomix</p>
+            <% end %>
+          </div>
         </div>
-        <%= cl_image_tag 'oven', height: 10, height: 20, crop: :fill %>
-        <%= cl_image_tag 'microwave', height: 10, height: 20, crop: :fill %>
-        <%= cl_image_tag 'rice-cooker', height: 10, height: 20, crop: :fill %>
+         <div class="ml-5">
+          <div class="d-flex kitchen-equipment">
+            <%= cl_image_tag 'rice-cooker', height: 15, height: 25, crop: :fill %>
+            <% if @kitchen.ricecooker? %>
+              <p>rice-cooker</p>
+            <% else %>
+              <p class="none">rice-cooker</p>
+            <% end %>
+          </div>
+          <div class="d-flex kitchen-equipment">
+            <%= cl_image_tag 'rolling-pin', height: 15, height: 25, crop: :fill %>
+            <% if @kitchen.pastry_set? %>
+              <p>pastry set</p>
+            <% else %>
+              <p class="none">pastry set</p>
+            <% end %>
+          </div>
+        </div>
+
 
       </div>
-      <%= cl_image_tag 'robot-cuisine', height: 10, height: 20, crop: :fill %>
-      <%= cl_image_tag 'rolling-pin', height: 10, height: 20, crop: :fill %>
-      <%= cl_image_tag 'rice-cooker', height: 10, height: 20, crop: :fill %>
     </div>
     <div class="future-form border ml-5" style="width:500px;height:400px;"></div>
   </div>
