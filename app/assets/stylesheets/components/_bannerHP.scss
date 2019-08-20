@@ -7,12 +7,13 @@
   margin-bottom: 45px;
 }
 
-.banner h1 {
+.banner h3 {
   margin: 0;
   color: white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   font-size: 42px;
-  font-weight: bold;
+  opacity: 0.8;
+  font-weight: 400;
 }
 
 .banner p {
@@ -32,3 +33,42 @@
   margin-bottom: 100px;
 }
 
+.carousel-item {
+  position: relative;
+}
+#logogo {
+  position: absolute;
+  bottom: 65%;
+  right: 45%;
+  width: 180px;
+  height: 180px;
+  filter: invert(1);
+  opacity: 0.7;
+}
+#aircook {
+  font-family: 'Righteous', cursive;
+  font-size: 120px;
+  text-align: center;
+  color: rgba(255,255,255, 0.8);
+  margin-top: 160px;
+}
+
+#btn {
+  margin: 0px;
+  font-size: 16px;
+  font-weight: bolder;
+  border-radius: 10px;
+}
+
+.text-center a {
+  width: 200px;
+  height: 60px;
+  text-align: center;
+  background-color: darkgreen;
+  border: 0;
+  text-align: center;
+  line-height: 42px;
+}
+#btn:hover {
+  background-color: green;
+}
