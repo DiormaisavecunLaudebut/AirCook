@@ -1,0 +1,34 @@
+<div class="main-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+url('<%= cl_image_path @kitchen.photo, height: 800, width: 1200, crop: :fill %>')">
+</div>
+<div class="container">
+  <div class="kitchen-main-card d-flex mt-3">
+    <h2><%= @kitchen.name %></h2>
+    <div class="user-infos ml-5 text-center">
+      <%= cl_image_tag @kitchen.user.photo, height: 300, width: 500, class: "avatar-large" %>
+      <p><%= @kitchen.user.username %></p>
+    </div>
+  </div>
+  <div class="d-flex">
+    <div>
+      <div class="kitchen-map" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)),
+    url('<%= cl_image_path 'map', height: 800, width: 1200, crop: :fill %>')">
+      </div>
+      <p class="border-bottom pb-3 mt-3"><%= @kitchen.description %></p>
+      <p><strong>Equipments</strong></p>
+      <div class="d-flex">
+        <div>
+
+        </div>
+        <%= cl_image_tag 'oven', height: 10, height: 20, crop: :fill %>
+        <%= cl_image_tag 'microwave', height: 10, height: 20, crop: :fill %>
+        <%= cl_image_tag 'rice-cooker', height: 10, height: 20, crop: :fill %>
+
+      </div>
+      <%= cl_image_tag 'robot-cuisine', height: 10, height: 20, crop: :fill %>
+      <%= cl_image_tag 'rolling-pin', height: 10, height: 20, crop: :fill %>
+      <%= cl_image_tag 'rice-cooker', height: 10, height: 20, crop: :fill %>
+    </div>
+    <div class="future-form border ml-5" style="width:500px;height:400px;"></div>
+  </div>
+</div>
