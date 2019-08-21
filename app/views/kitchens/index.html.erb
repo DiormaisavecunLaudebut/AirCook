@@ -17,7 +17,10 @@
               <h2 class="card-kitchen-pricing" style="display: inherit"><%= kitchen.price %> <i class="fas fa-euro-sign"></i></h2>
             </div>
             <% if policy(kitchen).show? %>
-            <%= link_to "", kitchen_path(kitchen), class: "card-link" %>
+            <div class="super-link">
+              <%= link_to "", kitchen_path(kitchen), class: "card-link" %>
+              <i class="far fa-heart"></i>
+            </div>
             <% end %>
           </div>
       <% end %>

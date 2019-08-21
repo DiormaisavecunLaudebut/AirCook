@@ -1,20 +1,12 @@
-const cards = document.querySelectorAll('.card-link')
+const hearts = document.querySelectorAll('.fa-heart')
 
 const like = () => {
-  cards.forEach((card) => {
-    card.addEventListener('mouseover', (event) => {
-      event.currentTarget.parentElement.insertAdjacentHTML('beforeend', `<i class="fa fa-heart"></i>`)
+  hearts.forEach((heart) => {
+    heart.addEventListener('click', (event) => {
+      event.currentTarget.classList.toggle('fa');
+      event.currentTarget.classList.toggle('far');
     });
   });
 };
 
-const dislike = () => {
-  cards.forEach((card) => {
-    card.addEventListener('mouseleave', (event) => {
-      event.currentTarget.nextSibling.nextSibling.remove();
-      // event.currentTarget.parentElement.insertAdjacentHTML('beforeend', `<i class="far fa-heart"></i>`)
-    });
-  });
-};
-
-export { dislike, like };
+export { like };
