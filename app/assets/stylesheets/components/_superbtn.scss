@@ -1,6 +1,6 @@
 .example_e {
 border: none;
-background: #404040;
+background: #EE555D;
 color: #ffffff !important;
 font-weight: 100;
 padding: 20px;
@@ -12,14 +12,14 @@ font-family: arial;
 }
 
 .example_e:hover {
-color: #404040 !important;
+color: #ffffff !important;
 font-weight: 700 !important;
 letter-spacing: 3px;
 background: none;
 -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
 -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
 transition: all 0.3s ease 0s;
-background-color: lightgrey;
+background-color: #EE555D;
 text-decoration: none;
 
 }
