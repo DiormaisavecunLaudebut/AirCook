@@ -4,6 +4,14 @@ class KitchensController < ApplicationController
 
   def index
     @kitchens = policy_scope(Kitchen)
+    @kitchens = Kitchen.geocoded
+    @markers = @kitchens.map do |kitchen|
+      {
+        lat: kitchen.latitude,
+        lng: kitchen.longitude
+      }
+    end
+
   end
 
   def new
