@@ -21,10 +21,11 @@ end
 puts "Creating 15 users and kitchens, each user being associated to a kitchen"
 images.first(15).each do |img|
   puts "Lior J'adore"
+  user_name = Faker::Name.female_first_name
   user = User.new(
     email: Faker::Internet.email,
     password: "DiormaisavecunLaudebut",
-    username: Faker::Name.unique.name
+    username: user_name
     )
   user.remote_photo_url = profil_pic
   user.save
@@ -32,7 +33,7 @@ images.first(15).each do |img|
     address: Faker::Address.street_address,
     description: description,
     price: (5..20).to_a.sample,
-    name: Faker::Name.first_name + "'s kitchen",
+    name: user_name + "'s kitchen",
     oven: luck.sample,
     microwave: luck.sample,
     thermomix: luck.sample,
