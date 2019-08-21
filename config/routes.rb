@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'lior', to: 'pages#lior'
   get "dashboard", to: "users#dashboard" 
   get "mykitchens", to: "users#mykitchens"
+  get "myfavorites", to: "users#myfavorites"
   resources :kitchens do
     resources :bookings do
     end
