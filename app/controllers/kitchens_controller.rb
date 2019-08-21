@@ -29,9 +29,8 @@ class KitchensController < ApplicationController
   end
 
   def destroy
-    kitchen.user = current_user
     @kitchen.destroy
-    redirect_to kitchens_path
+    redirect_to mykitchens_path
   end
 
   private
