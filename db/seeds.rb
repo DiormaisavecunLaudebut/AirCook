@@ -18,10 +18,9 @@ html_doc.search('.gallery-asset__thumb.gallery-mosaic-asset__thumb').each do |el
   images << element.attribute('src').value
 end
 
-puts "Creating 30 users and kitchens, each user being associated to a kitchen"
-images.first(30).each do |img|
+puts "Creating 15 users and kitchens, each user being associated to a kitchen"
+images.first(15).each do |img|
   puts "Lior J'adore"
-  print`clear`
   user = User.new(
     email: Faker::Internet.email,
     password: "DiormaisavecunLaudebut",
@@ -33,7 +32,7 @@ images.first(30).each do |img|
     location: Faker::Address.street_address,
     description: description,
     price: (5..20).to_a.sample,
-    name: "Amazing kitchen designed by Pablo, all equipped!",
+    name: Faker::Name.first_name + "'s kitchen",
     oven: luck.sample,
     microwave: luck.sample,
     thermomix: luck.sample,

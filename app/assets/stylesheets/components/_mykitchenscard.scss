@@ -1,6 +1,4 @@
-
-
-.card-product {
+.card-mykitchen {
   overflow: hidden;
   height: 120px;
   background: white;
@@ -11,54 +9,36 @@
   justify-content: space-between;
 }
 
-.card-product img {
-  height: 100px;
-  width: 100px;
-  background-position: top center;
-  border-radius: 50%;
-  margin-left: 15px;
+.card-mykitchen-infos img {
+  height: 100%;
+  width: 200px;
   object-fit: cover;
 }
 
-.card-product h2 {
+.card-mykitchen h5 {
   font-size: 16px;
   font-weight: bold;
   margin: 0;
 }
 
-.card-product p {
-  font-size: 12px;
-  line-height: 1.4;
-  opacity: .7;
-  margin-bottom: 0;
-  margin-top: 8px;
-}
-
-.card-product-infos {
-  padding: 16px;
+.card-mykitchen-infos {
+  height: 100%;
   display: flex;
   align-items: center;
 
 }
 
-.card-product h3 {
-  font-size: 14px;
-  font-weight: bold;
-  margin: 0;
-}
-
 .card-details {
   display: flex;
   flex-direction: column;
-  margin-left:20px;
+  padding-left: 5px;
 }
+
 
 .calltoactions {
   display: flex;
   justify-content: space-evenly;
 }
-
-
 
 .btn-success {
   color: white;
@@ -70,6 +50,11 @@
   margin-left: 200px;
 }
 
+.btn-success:hover {
+  background: #1BCB7F;
+  color: white;
+}
+
 .btn-danger {
   color: white;
   padding: 8px 24px;
@@ -78,6 +63,7 @@
   transition: background 0.3s ease;
    margin-right: 30px;
 }
+
 
 
 

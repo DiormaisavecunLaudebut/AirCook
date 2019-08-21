@@ -14,7 +14,7 @@ class KitchensController < ApplicationController
   def create
     @kitchen = current_user.kitchens.new(kitchen_params)
     authorize @kitchen
-    @kitchen.save ? (redirect_to kitchen_path(kitchen)) : (render 'new')
+    @kitchen.save ? (redirect_to kitchen_path(@kitchen)) : (render 'new')
   end
 
   def show
