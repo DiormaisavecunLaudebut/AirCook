@@ -3,8 +3,8 @@ class Kitchen < ApplicationRecord
   belongs_to :user
   has_many :bookings
   has_many :reviews, through: :bookings
-  validates :location, :name, :price, :description, presence: true
+  validates :address, :name, :price, :description, presence: true
 
-  geocoded_by :location
-  after_validation :geocode, if: :will_save_change_to_location?
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
 end

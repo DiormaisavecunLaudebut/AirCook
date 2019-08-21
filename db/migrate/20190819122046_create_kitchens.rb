@@ -2,7 +2,7 @@ class CreateKitchens < ActiveRecord::Migration[5.2]
   def change
     create_table :kitchens do |t|
       t.text :description
-      t.string :location
+      t.string :address
       t.integer :price
       t.string :name
       t.boolean :oven
