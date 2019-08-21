@@ -3,57 +3,36 @@
   <div class="carousel-inner">
     <div class="carousel-item active">
       <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path 'banner7', height: 800, width: 1200, crop: :fill %>')">
-        <h1 id="aircook">Aircook</h1>
-      <div class="container">
-          <img src="https://www.ambiance-sticker.com/images/Image/sticker-cuisine-toque-et-couvert-ambiance-sticker-KC6168.png" id="logogo">
-          <div class="text-center mt-5">
-            <h3>Cook <strong>Anywhere</strong> Anytime <strong> Anything</strong>!</h3>
-            <p>Find a kitchen that suits you best!</p>
-            <%= link_to "SEE THE KITCHENS", kitchens_path, class:"example_e", id: "btn" %>
-          </div>
-     </div>
+      </div>
     </div>
-  </div>
-
     <div class="carousel-item">
-      <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path 'banner_10', height: 800, width: 1200, crop: :fill %>')">
-        <h1 id="aircook">Aircook</h1>
-          <div class="container">
-          <img src="https://www.ambiance-sticker.com/images/Image/sticker-cuisine-toque-et-couvert-ambiance-sticker-KC6168.png" id="logogo">
-          <div class="text-center mt-5">
-            <h3>Cook <strong>Anywhere</strong> Anytime <strong> Anything</strong>!</h3>
-            <p>Find a kitchen that suits you best!</p>
-            <%= link_to "SEE THE KITCHENS", kitchens_path, class:"example_e", id: "btn" %>
-          </div>
-         </div>
-        </div>
-        </div>
-
+      <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path 'banner_10', height: 800, width: 1200, crop: :fill %>')"></div>
+    </div>
     <div class="carousel-item">
       <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path 'banner8', height: 800, width: 1200, crop: :fill %>')">
-        <h1 id="aircook">Aircook</h1>
-      <div class="container">
-          <img src="https://www.ambiance-sticker.com/images/Image/sticker-cuisine-toque-et-couvert-ambiance-sticker-KC6168.png" id="logogo">
-          <div class="text-center mt-5">
-            <h3>Cook <strong>Anywhere</strong> Anytime <strong> Anything</strong>!</h3>
-            <p>Find a kitchen that suits you best!</p>
-            <%= link_to "SEE THE KITCHENS", kitchens_path, class:"example_e", id: "btn" %>
-          </div>
-     </div>
+      </div>
     </div>
   </div>
 
-      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
-    </div>
-</div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+
 </div>
 
+<div class="main-text hidden-xs">
+  <div class="col-md-12 text-center">
+    <img src="https://www.ambiance-sticker.com/images/Image/sticker-cuisine-toque-et-couvert-ambiance-sticker-KC6168.png" id="logogo">
+    <h1 id="aircook">Aircook</h1>
+    <h3>Cook <strong>Anywhere</strong> Anytime <strong> Anything</strong>!</h3>
+    <p>Find a kitchen that suits you best!</p>
+    <%= link_to "SEE THE KITCHENS", kitchens_path, class:"example_e", id: "btn" %>
+  </div>
+</div>
 
 <%= render 'layouts/card' %>
