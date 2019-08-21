@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2019_08_21_090751) do
 
   create_table "kitchens", force: :cascade do |t|
     t.text "description"
-    t.string "location"
+    t.string "address"
     t.integer "price"
     t.string "name"
     t.boolean "oven"

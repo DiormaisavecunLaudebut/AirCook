@@ -30,7 +30,7 @@ images.first(30).each do |img|
   user.remote_photo_url = profil_pic
   user.save
   kitchen = Kitchen.new(
-    location: Faker::Address.street_address,
+    address: Faker::Address.street_address,
     description: description,
     price: (5..20).to_a.sample,
     name: "Amazing kitchen designed by Pablo, all equipped!",
