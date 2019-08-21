@@ -1,9 +1,11 @@
 <h1 class="text-center" style="padding-top: 10px">Kitchens</h1>
 
-<div class="content">
-    <div class="card-kitchen-index">
+<div class="content d-flex">
+  <div class="card-container">
+
+    <div class="card-kitchen-index row">
       <% @kitchens.each do |kitchen| %>
-          <div class="card-kitchen" id="card-kitchen-index-width">
+          <div class="card-kitchen col-4" id="card-kitchen-index-width">
               <%= cl_image_tag kitchen.photo, height: 700, width: 700, crop: :fill %>
             <div class="card-kitchen-infos">
               <div>
@@ -20,5 +22,10 @@
           </div>
       <% end %>
     </div>
+  </div>
+  <div id="map" data-markers="<%= @markers.to_json %>"
+ data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 </div>
+
+
 

@@ -4,6 +4,14 @@ class KitchensController < ApplicationController
 
   def index
     @kitchens = policy_scope(Kitchen)
+    @kitchens = Kitchen.geocoded
+    @markers = @kitchens.map do |kitchen|
+      {
+        lat: kitchen.latitude,
+        lng: kitchen.longitude
+      }
+    end
+
   end
 
   def new
@@ -33,6 +41,11 @@ class KitchensController < ApplicationController
     redirect_to mykitchens_path
   end
 
+  def dashboard
+    @bookings = current_user.bookings
+  end
+
+
   private
 
   def set_kitchen
@@ -43,7 +56,7 @@ class KitchensController < ApplicationController
   def kitchen_params
     params.require(:kitchen).permit(
       :name,
-      :location,
+      :address,
       :price,
       :description,
       :oven,
