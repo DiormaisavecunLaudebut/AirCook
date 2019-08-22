@@ -28,11 +28,13 @@
             </div>
         </div>
         <div class="status">
-          <h5 class="mr-5">Pending</h5>
-          <%= link_to "Cancel", booking_path(booking), method: :delete, class: 'btn btn-danger' %>
+          <div>
+            <h5 class="mr-5">Pending</h5>
+              <button type ="button" class="fas fa-times" data-toggle="modal" data-target="#confirm"></button>
+              <%= render 'modal_confirm', booking: booking %>
+          </div>
         </div>
       </div>
     <% end %>
   </div>
 </div>
-

@@ -7,12 +7,19 @@
   align-items: center;
   margin-top: 10px;
   justify-content: space-between;
+  position: relative;
 }
 
 .card-mykitchen-infos img {
   height: 100%;
   width: 200px;
   object-fit: cover;
+}
+
+.fa-times {
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }
 
 .card-mykitchen h5 {
@@ -77,7 +84,7 @@
 
 .menu {
   justify-content: center;
-}    
+}
 
 .titles {
   font-weight: bolder;
