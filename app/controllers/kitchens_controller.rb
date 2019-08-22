@@ -29,6 +29,7 @@ class KitchensController < ApplicationController
     @booking = Booking.new
     @reviews = @kitchen.reviews
     @months = %w(nada Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec)
+    @kitchen = Kitchen.geocoded[Kitchen.geocoded.index(@kitchen)]
     @marker = {
       lat: @kitchen.latitude,
       lng: @kitchen.longitude
