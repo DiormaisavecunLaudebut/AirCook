@@ -21,5 +21,5 @@ const calculateBooking = () => {
 }
 
 
-export { calculateBooking };
+export { calculateBooking } ;
 
