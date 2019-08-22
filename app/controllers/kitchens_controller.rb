@@ -6,7 +6,13 @@ class KitchensController < ApplicationController
 
   def index
     @kitchens = policy_scope(Kitchen)
-    @kitchens = Kitchen.geocoded
+
+    if params[:query].present?
+      @kitchens = Kitchen.search_by_address(params[:query])
+    else
+      @kitchens = Kitchen.all
+    end
+
     @markers = @kitchens.map do |kitchen|
       {
         lat: kitchen.latitude,
