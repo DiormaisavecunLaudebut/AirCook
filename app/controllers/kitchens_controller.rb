@@ -8,10 +8,10 @@ class KitchensController < ApplicationController
     @markers = @kitchens.map do |kitchen|
       {
         lat: kitchen.latitude,
-        lng: kitchen.longitude
+        lng: kitchen.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { kitchen: kitchen })
       }
     end
-
   end
 
   def new
@@ -29,6 +29,10 @@ class KitchensController < ApplicationController
     @booking = Booking.new
     @reviews = @kitchen.reviews
     @months = %w(nada Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec)
+    @marker = {
+      lat: @kitchen.latitude,
+      lng: @kitchen.longitude
+    }
   end
 
   def edit
