@@ -27,6 +27,8 @@ class KitchensController < ApplicationController
 
   def show
     @booking = Booking.new
+    @reviews = @kitchen.reviews
+    @months = %w(nada Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec)
     @marker = {
       lat: @kitchen.latitude,
       lng: @kitchen.longitude
