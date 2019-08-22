@@ -10,9 +10,7 @@ url('<%= cl_image_path @kitchen.photo, height: 800, width: 1200, crop: :fill %>'
     </div>
   </div>
   <div class="d-flex kitchen-all">
-    <div>
-
-
+    <div style="width:90%;">
       <div class="kitchen-map" data-markers="<%= @markers.to_json %>"
  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)),
     url('<%= cl_image_path 'map', height: 800, width: 1200, crop: :fill %>')">
@@ -64,12 +62,61 @@ url('<%= cl_image_path @kitchen.photo, height: 800, width: 1200, crop: :fill %>'
             <% end %>
           </div>
         </div>
-
-
       </div>
+      <div class="d-flex align-items-center all-reviews border-top border-bottom py-3">
+        <h3>174 reviews</h3>
+        <div class="rating-avg ml-3">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
+      </div>
+      <div class="d-flex justify-content-between pt-3">
+        <div>
+          <% %w(Précision Communication Propreté).each do |category| %>
+            <div class="d-flex category-rating justify-content-between">
+              <p><%= category %></p>
+              <div class="ml-5">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <div>
+        <% %w(Qualité-Prix Emplacement Equipments).each do |category| %>
+          <div class="d-flex category-rating justify-content-between">
+            <p><%= category %></p>
+            <div class="ml-5">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+        <% end %>
+        </div>
+      </div>
+      <% @reviews.each do |review| %>
+      <div class="py-3 mt-1 border-bottom">
+        <div class="d-flex align-items-center">
+          <%= cl_image_tag review.user.photo, height: 300, width: 400, crop: :fill, class: "avatar-medium mr-3" %>
+          <div class="review-user-infos">
+            <span><%= review.user.username %></span>
+            <p><%= "#{@months[review.created_at.month]} #{review.created_at.day}, #{review.created_at.year}" %></p>
+          </div>
+        </div>
+        <p><%= review.content %></p>
+      </div>
+      <% end %>
     </div>
     <div class="future-form ml-5" style="width:500px;height:420px">
       <%= render 'booking-form' %>
     </div>
-  </div>
 </div>
