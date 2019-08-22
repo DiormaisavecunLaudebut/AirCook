@@ -8,4 +8,8 @@ class UserPolicy < ApplicationPolicy
   def mykitchens?
     true
   end
+
+  def myfavorites?
+    true
+  end
 end
