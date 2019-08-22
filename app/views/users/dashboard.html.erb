@@ -5,30 +5,31 @@
          <%= link_to "My bookings", dashboard_path, class: "tab-underlined active" %>
       </li>
       <li>
-        <%= link_to "My favorites", myfavorites_path, class: "tab-underlined"%> 
+        <%= link_to "My favorites", myfavorites_path, class: "tab-underlined"%>
       </li>
       <li>
         <%= link_to "My kitchens", mykitchens_path, class: "tab-underlined" %>
       </li>
       <li>
-        <%= link_to "Add kitchen", new_kitchen_path, class: "tab-underlined"%> 
+        <%= link_to "Add kitchen", new_kitchen_path, class: "tab-underlined"%>
       </li>
     </ul>
   </div>
-  
+
   <div class="kitchen">
-    <% @kitchens.each do |kitchen| %>
+    <% @bookings.each do |booking| %>
       <div class="card-mykitchen">
         <div class="card-mykitchen-infos">
-          <%= cl_image_tag kitchen.photo %>
+          <%= cl_image_tag booking.kitchen.photo %>
             <div class="card-details">
-              <h4 class="card-mykitchen-subtitle"><%= kitchen.name %> </h4> 
-              <h5><%= kitchen.address %></h5>
+              <h4 class="card-mykitchen-subtitle"><%= booking.kitchen.name %> </h4>
+              <h5><%= booking.kitchen.address %></h5>
               <h5>TOTAL PRICE€ + dates</h5>
             </div>
         </div>
         <div class="status">
           <h5 class="mr-5">Pending</h5>
+          <%= link_to "Cancel", booking_path(booking), method: :delete, class: 'btn btn-danger' %>
         </div>
       </div>
     <% end %>

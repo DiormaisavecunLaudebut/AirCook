@@ -1,8 +1,7 @@
 class UsersController < ApplicationController
   def dashboard
     skip_authorization
-    @kitchens = current_user.bookings.map { |booking| booking.kitchen }
-    
+    @bookings = current_user.bookings
   end
 
   def mykitchens

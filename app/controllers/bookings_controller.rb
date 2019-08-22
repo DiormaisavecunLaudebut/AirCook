@@ -1,4 +1,6 @@
 class BookingsController < ApplicationController
+  after_action :verify_authorized, except: [:destroy]
+
   def index
     @bookings = Booking.all
   end
@@ -6,7 +8,7 @@ class BookingsController < ApplicationController
   def new
     @kitchen = Kitchen.find(params[:kitchen_id])
     @booking = Booking.new
-  end 
+  end
 
   def create
     @booking = Booking.new(booking_params)
@@ -25,7 +27,7 @@ class BookingsController < ApplicationController
     # @user_bookings = current_user.bookings
     @booking = Booking.find(params[:id])
     @booking.destroy
-    redirect_to bookings_path
+    redirect_to dashboard_path
   end
 
   private
