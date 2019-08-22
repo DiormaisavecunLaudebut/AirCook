@@ -19,7 +19,15 @@
             <% if policy(kitchen).show? %>
             <div class="super-link">
               <%= link_to "", kitchen_path(kitchen), class: "card-link" %>
-              <i class="far fa-heart"></i>
+              <% if current_user.likes.map {|i| i.kitchen_id}.include?(kitchen.id) %>
+              <%= link_to kitchen_dislike_path(kitchen), method: :delete do %>
+                <i class="fas fa-heart"></i>
+                <% end %>
+              <% else %>
+              <%= link_to kitchen_like_path(kitchen) do %>
+                <i class="far fa-heart"></i>
+                <% end %>
+              <% end %>
             </div>
             <% end %>
           </div>
