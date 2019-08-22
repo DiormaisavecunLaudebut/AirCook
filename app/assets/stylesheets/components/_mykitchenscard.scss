@@ -64,6 +64,17 @@
    margin-right: 30px;
 }
 
+.main-card {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  grid-gap: 32px;
+}
 
 
+.dash {
+  max-width: 80% !important;
+}
 
+.menu {
+  justify-content: center;
+}    
