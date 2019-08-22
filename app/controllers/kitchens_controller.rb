@@ -9,7 +9,9 @@ class KitchensController < ApplicationController
       {
         lat: kitchen.latitude,
         lng: kitchen.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { kitchen: kitchen })
+        infoWindow: render_to_string(partial: "info_window", locals: { kitchen: kitchen }),
+        image_url: helpers.asset_url('kitchen-marker')
+        # infoWindow: render_to_string(partial: "info_window", locals: { kitchen: kitchen })
       }
     end
   end
@@ -32,7 +34,9 @@ class KitchensController < ApplicationController
     @kitchen = Kitchen.geocoded[Kitchen.geocoded.index(@kitchen)]
     @marker = {
       lat: @kitchen.latitude,
-      lng: @kitchen.longitude
+      lng: @kitchen.longitude,
+      infoWindow: render_to_string(partial: "info_window", locals: { kitchen: @kitchen }),
+      image_url: helpers.asset_url('kitchen-marker')
     }
   end
 
