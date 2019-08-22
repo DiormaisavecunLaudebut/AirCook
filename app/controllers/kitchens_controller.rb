@@ -1,6 +1,8 @@
 class KitchensController < ApplicationController
   before_action :set_kitchen, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_after_action :verify_authorized, only: [:like, :dislike]
+
 
   def index
     @kitchens = policy_scope(Kitchen)
@@ -15,9 +17,27 @@ class KitchensController < ApplicationController
       {
         lat: kitchen.latitude,
         lng: kitchen.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { kitchen: kitchen })
+        infoWindow: render_to_string(partial: "info_window", locals: { kitchen: kitchen }),
+        image_url: helpers.asset_url('kitchen-marker')
+        # infoWindow: render_to_string(partial: "info_window", locals: { kitchen: kitchen })
       }
     end
+  end
+
+  def like
+    like = Like.new(
+      user: current_user,
+      kitchen: Kitchen.find(params[:kitchen_id].to_i),
+      like: true
+    )
+    like.save
+    redirect_to kitchens_path
+  end
+
+  def dislike
+    like = current_user.likes.select { |i| i.kitchen_id == params[:kitchen_id].to_i }
+    like.first.destroy
+    redirect_to kitchens_path
   end
 
   def new
@@ -28,14 +48,19 @@ class KitchensController < ApplicationController
   def create
     @kitchen = current_user.kitchens.new(kitchen_params)
     authorize @kitchen
-    @kitchen.save ? (redirect_to kitchen_path(@kitchen)) : (render 'new')
+    @kitchen.save ? (redirect_to mykitchens_path) : (render 'new')
   end
 
   def show
     @booking = Booking.new
+    @reviews = @kitchen.reviews
+    @months = %w(nada Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec)
+    @kitchen = Kitchen.geocoded[Kitchen.geocoded.index(@kitchen)]
     @marker = {
       lat: @kitchen.latitude,
-      lng: @kitchen.longitude
+      lng: @kitchen.longitude,
+      infoWindow: render_to_string(partial: "info_window", locals: { kitchen: @kitchen }),
+      image_url: helpers.asset_url('kitchen-marker')
     }
   end
 
@@ -54,7 +79,6 @@ class KitchensController < ApplicationController
   def dashboard
     @bookings = current_user.bookings
   end
-
 
   private
 

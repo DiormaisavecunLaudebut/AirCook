@@ -11,6 +11,12 @@
   width: 50px;
 }
 
+.bcm-renter {
+  color:  #484848 !important;
+  font-size: 18px !important;
+  padding-right: 30px !important;
+}
+
 .fa-user-circle {
 	color: #484848;
 	font-size: 48px;
@@ -29,4 +35,21 @@
 
 .logo-title h3 {
   font-family: 'Righteous', cursive;
+}
+
+.nav-item {
+  font-size: 20px;
+}
+
+.special {
+  padding-right: 8px;
+  border-right: 3px solid black;
+  text-decoration: none;
+  color: black;
+}
+
+.special:hover {
+  text-decoration: none;
+  color: #484848;
+
 }

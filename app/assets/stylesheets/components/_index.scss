@@ -16,7 +16,8 @@
 @import"superbtn";
 @import "map";
 @import "tabs";
-
+@import "reviews";
+@import "no-likes";
 
 .content {
   display: flex;
@@ -28,4 +29,10 @@ abbr[title="required"] {
 
 body {
   background-color: white;
+}
+
+#newkitchen {
+  width:50%;
+  margin-left: 40%;
+  margin-top: 10px;
 }

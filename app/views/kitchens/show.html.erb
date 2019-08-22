@@ -11,63 +11,125 @@ url('<%= cl_image_path @kitchen.photo, height: 800, width: 1200, crop: :fill %>'
   </div>
   <div class="d-flex kitchen-all">
     <div>
-
       <p class="border-bottom pb-3 mt-3"><%= @kitchen.description %></p>
-      <p><strong>Equipments</strong></p>
-      <div class="d-flex mt-4">
-        <div>
-          <div class="d-flex kitchen-equipment">
-            <%= cl_image_tag 'oven', height: 15, height: 25, crop: :fill %>
-            <% if @kitchen.oven? %>
-              <p>oven</p>
-            <% else %>
-              <p class="none">oven</p>
-            <% end %>
+      <div class="d-flex justify-content-between pb-3">
+        <div id="equipments">
+          <p><strong>Equipments</strong></p>
+          <div class="d-flex mt-4">
+            <div>
+              <div class="d-flex kitchen-equipment">
+                <%= cl_image_tag 'oven', height: 15, height: 25, crop: :fill %>
+                <% if @kitchen.oven? %>
+                  <p>oven</p>
+                <% else %>
+                  <p class="none">oven</p>
+                <% end %>
+              </div>
+              <div class="d-flex kitchen-equipment">
+                <%= cl_image_tag 'microwave', height: 15, height: 25, crop: :fill %>
+                <% if @kitchen.microwave? %>
+                  <p>microwave</p>
+                <% else %>
+                  <p class="none">microwave</p>
+                <% end %>
+              </div>
+              <div class="d-flex kitchen-equipment">
+                <%= cl_image_tag 'robot-cuisine', height: 15, height: 25, crop: :fill %>
+                <% if @kitchen.thermomix? %>
+                  <p>thermomix</p>
+                <% else %>
+                  <p class="none">thermomix</p>
+                <% end %>
+              </div>
+            </div>
+             <div class="ml-5">
+             <div class="d-flex kitchen-equipment">
+                  <%= cl_image_tag 'rice-cooker', height: 15, height: 25, crop: :fill %>
+                  <% if @kitchen.ricecooker? %>
+                    <p>rice-cooker</p>
+                  <% else %>
+                    <p class="none">rice-cooker</p>
+                  <% end %>
+                </div>
+                <div class="d-flex kitchen-equipment">
+                  <%= cl_image_tag 'rolling-pin', height: 15, height: 25, crop: :fill %>
+                  <% if @kitchen.pastry_set? %>
+                    <p>pastry set</p>
+                  <% else %>
+                    <p class="none">pastry set</p>
+                  <% end %>
+                </div>
+              </div>
           </div>
-          <div class="d-flex kitchen-equipment">
-            <%= cl_image_tag 'microwave', height: 15, height: 25, crop: :fill %>
-            <% if @kitchen.microwave? %>
-              <p>microwave</p>
-            <% else %>
-              <p class="none">microwave</p>
-            <% end %>
-          </div>
-          <div class="d-flex kitchen-equipment">
-            <%= cl_image_tag 'robot-cuisine', height: 15, height: 25, crop: :fill %>
-            <% if @kitchen.thermomix? %>
-              <p>thermomix</p>
-            <% else %>
-              <p class="none">thermomix</p>
-            <% end %>
-          </div>
-        </div>
-         <div class="ml-5">
-          <div class="d-flex kitchen-equipment">
-            <%= cl_image_tag 'rice-cooker', height: 15, height: 25, crop: :fill %>
-            <% if @kitchen.ricecooker? %>
-              <p>rice-cooker</p>
-            <% else %>
-              <p class="none">rice-cooker</p>
-            <% end %>
-          </div>
-          <div class="d-flex kitchen-equipment">
-            <%= cl_image_tag 'rolling-pin', height: 15, height: 25, crop: :fill %>
-            <% if @kitchen.pastry_set? %>
-              <p>pastry set</p>
-            <% else %>
-              <p class="none">pastry set</p>
-            <% end %>
-          </div>
-        </div>
       </div>
-      <p><strong>Check kitchen location</strong></p>
-      <div id="map" class="map-kitchen-show" data-markers="<%= @markers.to_json %>"
-      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>", height: 400, width: 600, crop: :fill %>
+      <div id="map" class="map-show" data-markers="<%= @marker.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>", height: 400, width: 600, crop: :fill %>
       </div>
 
+    </div>
+      <div class="d-flex align-items-center all-reviews border-top border-bottom py-3">
+        <h3>174 reviews</h3>
+        <div class="rating-avg ml-3">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
+      </div>
+      <div class="d-flex justify-content-between pt-3">
+        <div>
+          <% %w(Précision Communication Propreté).each do |category| %>
+            <div class="d-flex category-rating justify-content-between">
+              <p><%= category %></p>
+              <div class="ml-5">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <div>
+        <% %w(Qualité-Prix Emplacement Equipments).each do |category| %>
+          <div class="d-flex category-rating justify-content-between">
+            <p><%= category %></p>
+            <div class="ml-5">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+        <% end %>
+        </div>
+      </div>
+      <% @reviews.each do |review| %>
+      <div class="py-3 mt-1 border-bottom">
+        <div class="d-flex align-items-center">
+          <%= cl_image_tag review.user.photo, height: 300, width: 400, crop: :fill, class: "avatar-medium mr-3" %>
+          <div class="review-user-infos">
+            <span><%= review.user.username %></span>
+            <p><%= "#{@months[review.created_at.month]} #{review.created_at.day}, #{review.created_at.year}" %></p>
+          </div>
+        </div>
+        <p><%= review.content %></p>
+      </div>
+      <% end %>
     </div>
     <div class="future-form ml-5" style="width:500px;height:420px">
       <%= render 'booking-form' %>
+    <div class="text-center">
+      <%= link_to lior_path do %>
+        <div class="mt-3">
+          <i class="far fa-flag"></i>
+          <span id="report">Signaler cette annonce</span>
+
+        </div>
+      <% end %>
     </div>
-  </div>
+    </div>
 </div>

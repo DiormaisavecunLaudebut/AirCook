@@ -1,27 +1,48 @@
 <div class="container foot">
-  <ul class="list-inline tabs-underlined ">
-    <li>
-       <%= link_to "My bookings", dashboard_path, class: "tab-underlined" %>
-    </li>
-    <li>
-      <%= link_to "My kitchens", mykitchens_path, class: "tab-underlined" %>
-    </li>
-    <li>
-      <%= link_to "My favorites", myfavorites_path, class: "tab-underlined active"%> 
-    </li>
-    <li>
-      <%= link_to "Add kitchen", new_kitchen_path, class: "tab-underlined"%> 
-    </li>
-  </ul>
-
-
-
-	<div class="card-mykitchen">
-	  <div class="card-mykitchen-infos">
-	    <img src="http://static.cotemaison.fr/medias_11928/w_1359,h_760,c_crop,x_0,y_145/w_2000,h_1125,c_fill,g_north/v1561563110/cuisine-leroy-merlin-12_6107562.jpg" />
-	  <div class="card-details">
-	    <h5 class="card-mykitchen-subtitle"><%= kitchen.name %></h5> 
-	  </div>
-	</div>
-
+  <div class="menu">
+    <ul class="list-inline tabs-underlined ">
+      <li>
+         <%= link_to "My bookings", dashboard_path, class: "tab-underlined" %>
+      </li>
+      <li>
+        <%= link_to "My favorites", myfavorites_path, class: "tab-underlined active"%>
+      </li>
+      <li>
+        <%= link_to "My kitchens", mykitchens_path, class: "tab-underlined" %>
+      </li>
+      <li>
+        <%= link_to "Add kitchen", new_kitchen_path, class: "tab-underlined"%>
+      </li>
+    </ul>
+  </div>
+  <% if @kitchens.empty? %>
+    <div id="no-like">
+      <h3 class="text-center mt-3">You don't have any favorite yet... </h3>
+      <h5 class="text-center"> But it's not too late !!!</h5>
+      <p>||</p>
+      <p>||</p>
+      <p>||</p>
+      <p>||</p>
+      <p>||</p>
+      <p>V</p>
+      <div id="newkitchen">
+        <%= link_to "Find awesome Kitchens", new_kitchen_path, class: "btn btn-warning" %>
+      </div>
+    </div>
+  <% else %>
+  <div class="kitchen">
+    <% @kitchens.each do |kitchen| %>
+      <div class="card-mykitchen">
+        <div class="card-mykitchen-infos">
+          <%= cl_image_tag kitchen.photo %>
+            <div class="card-details">
+              <h4 class="card-mykitchen-subtitle"><%= kitchen.name %> </h4>
+              <h5><%= kitchen.address %></h5>
+              <h5>TOTAL PRICE€ + dates</h5>
+            </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <% end %>
 </div>

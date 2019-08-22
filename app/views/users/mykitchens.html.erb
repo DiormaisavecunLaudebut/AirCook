@@ -1,31 +1,103 @@
-<div class="container foot">
-  <ul class="list-inline tabs-underlined ">
-    <li>
-      <%= link_to "My bookings", dashboard_path, class: "tab-underlined" %>
-    </li>
-    <li>
-      <%= link_to "My kitchens", mykitchens_path, class: "tab-underlined active" %>
-    </li>
-    <li>
-      <%= link_to "My favorites", myfavorites_path, class: "tab-underlined"%> 
-    </li>
-    <li>
-      <%= link_to "Add kitchen", new_kitchen_path, class: "tab-underlined"%> 
-    </li>
-  </ul>
-  <% current_user.kitchens.each do |kitchen| %>
-      <div class="card-mykitchen">
-        <div class="card-mykitchen-infos">
-          <img src="http://static.cotemaison.fr/medias_11928/w_1359,h_760,c_crop,x_0,y_145/w_2000,h_1125,c_fill,g_north/v1561563110/cuisine-leroy-merlin-12_6107562.jpg" />
-          <div class="card-details">
-            <h5 class="card-mykitchen-subtitle"><%= current_user.email %></h5> 
-          </div>
-        </div>
-        <div class="calltoactions">
-        <%= link_to "Edit", edit_kitchen_path(kitchen), class: "btn btn-success" %>
+<div class="container text-center">
+  <div class="menu">
+    <ul class="list-inline tabs-underlined ">
+      <li>
+        <%= link_to "My bookings", dashboard_path, class: "tab-underlined" %>
+      </li>
+      <li>
+        <%= link_to "My favorites", myfavorites_path, class: "tab-underlined"%> 
+      </li>
+      <li>
+        <%= link_to "My kitchens", mykitchens_path, class: "tab-underlined active" %>
+      </li>
+      <li>
+        <%= link_to "Add kitchen", new_kitchen_path, class: "tab-underlined"%> 
+      </li>
+    </ul>
+  </div>
+</div>
 
-       <%= link_to "Delete", kitchen_path(kitchen), method: :delete, class: "btn btn-danger" %>
+<div class="container foot dash">
+  <div class="titles d-flex justify-content-between">
+    
+      <h4>Kitchens</h4>
+  
+      <h4>Requests</h4>
+
+  </div>
+  <div class="main-card">
+    <div class="kitchen">
+      <% current_user.kitchens.each do |kitchen| %>
+          <div class="card-mykitchen">
+            <div class="card-mykitchen-infos">
+              <%= cl_image_tag kitchen.photo %>
+              <div class="card-details">
+                <h4 class="card-mykitchen-subtitle"><%= kitchen.name %> </h4> 
+                <h5><%= kitchen.address %></h5>
+                <h5><%= kitchen.price %>€/per day</h5>
+              </div>
+            </div>
+
+            <div class="calltoactions">
+            <%= link_to "Edit", edit_kitchen_path(kitchen), class: "btn btn-success" %>
+
+           <%= link_to "Delete", kitchen_path(kitchen), method: :delete, class: "btn btn-danger" %>
+            </div>
+          </div>
+      <% end %>
+    </div>
+    <div class="requests">
+
+      <div class="bookink-cards">
+    <div class="card-product">
+      <div class="card-product-infos">
+       <img class="avatar" src="https://res.cloudinary.com/dlodtvkez/image/upload/v1566314653/id2.jpg" />
+       <div class="card-details">
+          <h2>Linda Blanca</h2>
+          <h3 class="card-product-subtitle">Rented: Marion's kitchen</h3>
+          <p>Linda has booked <strong>From 12/09/2019 To 25/09/19</strong>.</p>
+       </div>
+      </div>
+      <div class="calltoactions">
+        <a class="btn btn-success" href="#">Accept</a>
+
+        <a class="btn btn-danger" href="#">Cancel</a>
+      </div>
+    </div>
+    <div class="card-product">
+      <div class="card-product-infos">
+        <img src="https://img-0.journaldunet.com/M0Rry_97U_EnJy_IGrIeoxkRFUY=/1280x/smart/7cfa455788b7461ea1782b0b72e31c8f/ccmcms-jdn/2383369.jpg" />
+        <div class="card-details">
+          <h2>Mark Zuckerberg</h2>
+          <h3 class="card-product-subtitle">Rented: Marion's kitchen</h3>
+          <p>Mark has booked <strong>From 25/08/2019 To 26/08/19</strong>.</p>
         </div>
       </div>
-  <% end %>
+      <div class="calltoactions">
+      <a class="btn btn-success" href="#">Accept</a>
+
+      <a class="btn btn-danger" href="#">Cancel</a>
+      </div>
+    </div>
+    <div class="card-product">
+      <div class="card-product-infos">
+       <img class="avatar" src="http://seemetrik.com/wp-content/uploads/2018/02/portrait-sigma-50mm-f14-hsm-canon-eos-5d-mk2-face-Favimcom-473053_zpsd55e8d8e.jpg" />
+       <div class="card-details">
+          <h2>Camille Joffre</h2>
+          <h3 class="card-product-subtitle">Rented: Marion's kitchen</h3>
+          <p>Camille has booked <strong>From 24/08/2019 To 26/08/19</strong>.</p>
+       </div>
+      </div>
+      <div class="calltoactions">
+        <%= link_to "Accept", new_kitchen_path, class: "btn btn-success" %>
+
+       <%= link_to "Cancel", new_kitchen_path, class: "btn btn-danger" %>
+        </div>
+    </div>
+  </div>
+      
+    </div>
+  </div>
 </div>
+
+ 

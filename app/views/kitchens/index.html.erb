@@ -25,19 +25,27 @@
                 <% end %>
                 <p style="text-align: justify;"><%= kitchen.description %></p>
               </div>
-              <h2 class="card-kitchen-pricing" style="display: inherit"><%= kitchen.price %> <i class="fas fa-euro-sign"></i></h2>
+              <h2 class="card-kitchen-pricing" style="display: inherit"><%= kitchen.price %>€</h2>
             </div>
             <% if policy(kitchen).show? %>
             <div class="super-link">
               <%= link_to "", kitchen_path(kitchen), class: "card-link" %>
-              <i class="far fa-heart"></i>
+              <% if current_user.likes.map {|i| i.kitchen_id}.include?(kitchen.id) %>
+              <%= link_to kitchen_dislike_path(kitchen), method: :delete do %>
+                <i class="fas fa-heart"></i>
+                <% end %>
+              <% else %>
+              <%= link_to kitchen_like_path(kitchen) do %>
+                <i class="far fa-heart"></i>
+                <% end %>
+              <% end %>
             </div>
             <% end %>
           </div>
       <% end %>
     </div>
   </div>
-  <div id="map" data-markers="<%= @markers.to_json %>"
+  <div id="map" class="map-index" data-markers="<%= @markers.to_json %>"
  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 </div>
 

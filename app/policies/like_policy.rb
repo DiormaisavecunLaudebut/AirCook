@@ -1,15 +1,15 @@
-class UserPolicy < ApplicationPolicy
+class LikePolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
     end
   end
 
-  def mykitchens?
+  def like
     true
   end
 
-  def myfavorites?
+  def dislike
     true
   end
 end

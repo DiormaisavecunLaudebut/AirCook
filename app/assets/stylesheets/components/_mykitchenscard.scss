@@ -2,17 +2,26 @@
   overflow: hidden;
   height: 120px;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
   display: flex;
   align-items: center;
   margin-top: 10px;
   justify-content: space-between;
+  position: relative;
 }
 
 .card-mykitchen-infos img {
   height: 100%;
   width: 200px;
   object-fit: cover;
+}
+
+.fa-times {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: 0;
+  color: #484848;
 }
 
 .card-mykitchen h5 {
@@ -64,6 +73,22 @@
    margin-right: 30px;
 }
 
+.main-card {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  grid-gap: 32px;
+}
 
 
+.dash {
+  max-width: 80% !important;
+}
 
+.menu {
+  justify-content: center;
+}
+
+.titles {
+  font-weight: bolder;
+  text-decoration: underline;
+}

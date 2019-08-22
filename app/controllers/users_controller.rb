@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
+
   def dashboard
     skip_authorization
+    @bookings = current_user.bookings
   end
 
   def mykitchens
@@ -8,6 +10,7 @@ class UsersController < ApplicationController
   end
 
   def myfavorites
-  	@favorites = current_user.favorites
+    skip_authorization
+    @kitchens = current_user.likes.map(&:kitchen)
   end
 end
