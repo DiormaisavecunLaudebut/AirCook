@@ -13,11 +13,13 @@
       <%= f.input :pastry_set %>
     </div>
     <%= f.input :other %>
-    <%= f.input :photo %>
+    <%= f.input :photo, input_html: { class: 'd-none', id: 'photo-input' }, label_html: { class: 'upload-photo'}, label: '📷 Upload a photo' %>
+    <%= image_tag "", width: 300, class: "hidden", id: "photo-preview"%>
     <%= f.input :photo_cache, as: :hidden %>
-    <div class="d-flex justify-content-end">
-      <%= f.submit 'Confirm', class: 'btn btn-primary' %>
+
 
     </div>
   <% end %>
 </div>
+
+
