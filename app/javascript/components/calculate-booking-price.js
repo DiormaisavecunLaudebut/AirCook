@@ -15,7 +15,7 @@ const calculateBooking = () => {
           dateInDays = 1;
         }
       const bookingPrice = kitchenPrice.dataset.price * dateInDays
-      bookingResult.insertAdjacentHTML("beforeend", `<h2>${bookingPrice}€</h2>`)
+      bookingResult.insertAdjacentHTML("beforeend", `<h4>Prix total de la réservation: ${bookingPrice}€</h4>`)
     }
   });
 }
