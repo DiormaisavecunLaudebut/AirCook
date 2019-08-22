@@ -22,7 +22,7 @@ class KitchensController < ApplicationController
   def create
     @kitchen = current_user.kitchens.new(kitchen_params)
     authorize @kitchen
-    @kitchen.save ? (redirect_to kitchen_path(@kitchen)) : (render 'new')
+    @kitchen.save ? (redirect_to mykitchens_path) : (render 'new')
   end
 
   def show
@@ -50,7 +50,6 @@ class KitchensController < ApplicationController
   def dashboard
     @bookings = current_user.bookings
   end
-
 
   private
 
