@@ -12,11 +12,6 @@ url('<%= cl_image_path @kitchen.photo, height: 800, width: 1200, crop: :fill %>'
   <div class="d-flex kitchen-all">
     <div>
 
-
-      <div class="kitchen-map" data-markers="<%= @markers.to_json %>"
- data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)),
-    url('<%= cl_image_path 'map', height: 800, width: 1200, crop: :fill %>')">
-      </div>
       <p class="border-bottom pb-3 mt-3"><%= @kitchen.description %></p>
       <p><strong>Equipments</strong></p>
       <div class="d-flex mt-4">
@@ -64,9 +59,12 @@ url('<%= cl_image_path @kitchen.photo, height: 800, width: 1200, crop: :fill %>'
             <% end %>
           </div>
         </div>
-
-
       </div>
+      <p><strong>Check kitchen location</strong></p>
+      <div id="map" class="map-kitchen-show" data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>", height: 400, width: 600, crop: :fill %>
+      </div>
+
     </div>
     <div class="future-form ml-5" style="width:500px;height:420px">
       <%= render 'booking-form' %>
