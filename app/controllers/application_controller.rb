@@ -27,4 +27,3 @@ end
 
 # Reste le travail sur les liens sur la view de dashboard :
 # link to edit, link to new, link to destroy
-
