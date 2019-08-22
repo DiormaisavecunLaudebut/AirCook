@@ -3,6 +3,11 @@ class BookingsController < ApplicationController
     @bookings = Booking.all
   end
 
+  def new
+    @kitchen = Kitchen.find(params[:kitchen_id])
+    @booking = Booking.new
+  end 
+
   def create
     @booking = Booking.new(booking_params)
     @booking.kitchen = Kitchen.find(params[:kitchen_id])
@@ -10,19 +15,18 @@ class BookingsController < ApplicationController
     authorize @booking
     if @booking.save
       flash[:alert] = "Kitchen booked, bon appétit!"
-      (redirect_to kitchens_path)
+      (redirect_to dashboard_path)
     else
       (render 'new')
     end
   end
 
   def destroy
+    # @user_bookings = current_user.bookings
     @booking = Booking.find(params[:id])
     @booking.destroy
     redirect_to bookings_path
   end
-
-
 
   private
 

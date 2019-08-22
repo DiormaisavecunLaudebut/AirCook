@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get "mykitchens", to: "users#mykitchens"
   get "myfavorites", to: "users#myfavorites"
   resources :kitchens do
-    resources :bookings do
-    end
+    resources :bookings, only: [:new, :create]
   end
+  resources :bookings, only: [:destroy]
 end
