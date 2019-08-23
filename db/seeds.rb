@@ -39,7 +39,7 @@ html_doc.search('.gallery-asset__thumb.gallery-mosaic-asset__thumb').each do |el
 end
 
 reviews_url.each_with_index do |url, index|
-  puts "Scrapping the restaurant n°#{index + 1} on TripAdvisor"
+  puts "Scrapping the restaurant n°#{ index + 1 } on TripAdvisor"
   html_file = open(url).read
   html_doc = Nokogiri::HTML(html_file)
   html_doc.search('.partial_entry').each do |element|
