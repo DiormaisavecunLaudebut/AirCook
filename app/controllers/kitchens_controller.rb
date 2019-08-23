@@ -8,7 +8,7 @@ class KitchensController < ApplicationController
     @kitchens = policy_scope(Kitchen)
 
     if params[:query].present?
-      @kitchens = Kitchen.search_by_address(params[:query])
+      @kitchens = Kitchen.near(params[:query], 2)
     else
       @kitchens = Kitchen.all
     end

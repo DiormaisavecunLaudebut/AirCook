@@ -34,7 +34,7 @@
 }
 
 .card-kitchen p {
-  font-size: 16px;
+  font-size: 12px;
   opacity: .7;
 }
 
@@ -94,6 +94,23 @@
 .fa-heart {
   display:none;
 }
+
+.container-card-kitchen-infos-bottom {
+  display: flex;
+}
+
+
+.card-kitchen-equipement {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-kitchen-pricing {
+   display: flex;
+  justify-content: space-between;
+}
+
+
 
 // @media (min-width: 100px) and (max-width: 750px) {
 //   .card-kitchen-index {
