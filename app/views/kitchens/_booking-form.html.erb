@@ -1,5 +1,5 @@
 <div class="p-3 form-booking-control">
-  <h5 class='border-bottom pb-3'>Add dates to display price</h5>
+  <div class='show-price-info border-bottom pb-3'>Add dates to display total price</div>
 
   <div class="booking-form">
     <%= simple_form_for([@kitchen, @booking], data: {price: "#{@kitchen.price}"}) do |f| %>
@@ -10,7 +10,7 @@
         <li class="booking-list list-group-item d-flex justify-content-between align-items-center" id="price-per-night"> <span> <%= @kitchen.price %>€ x <span id="number-of-days"></span> </span> <span id="price-result"></span></li>
         <li class="booking-list list-group-item d-flex justify-content-between align-items-center"><span>Cleaning charge <i data-toggle="tooltip" data-placement="right" class="far fa-question-circle" title="We clean the kitchen after you go 🧹 "> </i></span> <span>5€</span></li>
         <li class="booking-list list-group-item d-flex justify-content-between align-items-center"><span>Service charge <i data-toggle="tooltip" data-placement="right" class="far fa-question-circle" title="This helps us maintain our services so awesome 🚀"> </i></span> <span>3€</span></li>
-        <li class="booking-list list-group-item d-flex justify-content-between align-items-center" style="font-weight: 600">Prix total <span id="total-price"></span></li>
+        <li class="booking-list list-group-item d-flex justify-content-between align-items-center" style="font-weight: 600">Total price <span id="total-price"></span></li>
       </ul>
     </div>
       <%= f.submit "Book me!", class: 'btn btn-lior book-btn my-1' %>

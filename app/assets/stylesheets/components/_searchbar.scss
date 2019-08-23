@@ -10,7 +10,6 @@
   border-color: white !important;
   border: 0 !important;
   outline: white !important;
-  box-shadow: none;
 }
 
 .form-inline .form-control {
@@ -31,4 +30,8 @@
 .fakesearch:hover {
   box-shadow: 0 2px 4px rgba(0,0,0,0.2), 0 4px 12px rgba(26, 26, 29, 0.08) !important;
   transition: box-shadow 200ms ease-in !important;
+}
+
+#kitchen_address.form-control:focus {
+  box-shadow: none;
 }

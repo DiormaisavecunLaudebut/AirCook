@@ -5,6 +5,7 @@ const bookingResult = document.querySelector("#price-result");
 const numberOfDays = document.getElementById("number-of-days");
 const displayPrice = document.getElementById("booking-price-result");
 const displayTotalPrice = document.getElementById("total-price");
+const displayPriceInMyBookings = document.getElementById("booking-total");
 
 
 const calculateBooking = () => {
@@ -29,6 +30,7 @@ const calculateBooking = () => {
       const totalPrice = `${bookingPrice}`;
       const totalPriceTrue = parseInt(totalPrice, 10) + 8;
       displayTotalPrice.innerHTML = `${totalPriceTrue}€`;
+      displayPriceInMyBookings.innerHTML = `${totalPriceTrue}€`;
     }
   });
 

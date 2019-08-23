@@ -1,3 +1,4 @@
+
 class BookingsController < ApplicationController
   after_action :verify_authorized, except: [:destroy]
 
@@ -14,6 +15,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.kitchen = Kitchen.find(params[:kitchen_id])
     @booking.user = current_user
+    @booking.compute_price
     authorize @booking
     if @booking.save
       flash[:alert] = "Kitchen booked, bon appétit!"
