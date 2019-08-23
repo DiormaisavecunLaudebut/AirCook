@@ -23,7 +23,7 @@
       <p>||</p>
       <p>V</p>
       <div id="newkitchen">
-        <%= link_to "Find awesome Kitchens", new_kitchen_path, class: "btn btn-warning" %>
+        <%= link_to "Find awesome Kitchens", kitchens_path, class: "btn btn-warning" %>
       </div>
     </div>
   <% else %>
@@ -35,7 +35,7 @@
             <div class="card-details">
               <h4 class="card-mykitchen-subtitle"><%= kitchen.name %> </h4>
               <h5><%= kitchen.address %></h5>
-              <h5>TOTAL PRICE€ + dates</h5>
+              <h5><%= kitchen.price %>€/per day</h5>
             </div>
         </div>
       </div>
