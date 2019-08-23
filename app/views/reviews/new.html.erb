@@ -1,0 +1,28 @@
+<div class="container foot">
+  <div class="row">
+    <div class="col-6">
+    	<h3>Write a review</h3>
+    	<br>
+
+      <%= simple_form_for @review do |f| %>
+        <div class="d-flex justify-content-between">
+          <div>
+              <%= f.input :precision, collection: (1..5).to_a, label: "Precision" %>
+              <%= f.input :communication, collection: (1..5).to_a, label: "Communication" %>
+              <%= f.input :cleanliness, collection: (1..5).to_a, label: "Cleanliness" %>
+          </div>
+          <div>
+              <%= f.input :quality, collection: (1..5).to_a, label: "Quality & Price" %>
+              <%= f.input :location, collection: (1..5).to_a, label: "Location" %>
+              <%= f.input :equipments, collection: (1..5).to_a, label: "Equipments" %>
+          </div>
+           </div>
+          <%= f.input :content, label: "Comment" %>
+          <%= f.submit "Send your review" %>
+       
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
