@@ -32,8 +32,9 @@ const calculateBooking = () => {
     }
   });
 
-}
+  }
 }
 
 export { calculateBooking } ;
+
 
