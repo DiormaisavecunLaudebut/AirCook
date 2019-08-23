@@ -17,7 +17,7 @@
 <div class="container foot dash">
   <div class="main-card">
     <div class="kitchen">
-      <h4 class="text-center mb-3">Requests</h4>
+      <h4 class="text-center mb-3">Kitchens</h4>
     <% @kitchens.each do |kitchen| %>
       <div class="card-mykitchen">
         <div class="card-mykitchen-infos">
@@ -35,13 +35,14 @@
             </div>
         </div>
       </div>
+
+    <% end %>    
       <div class='text-center mt-3'>
         <%= link_to new_kitchen_path do  %>
           <i title="Add a new kitchen!" data-toggle="tooltip" data-placement="bottom" class="fas fa-plus-square"></i>
         <% end %>
       </div>
-
-    <% end %>    </div>
+      </div>
     <div class="requests">
       <h4 class="text-center mb-3">Requests</h4>
     <% @bookings.flatten.each do |booking| %>
