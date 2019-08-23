@@ -10,5 +10,8 @@ Rails.application.routes.draw do
     delete "dislike", to: "kitchens#dislike"
     resources :bookings, only: [:new, :create]
   end
-  resources :bookings, only: [:destroy]
+  resources :bookings, only: [:destroy] do
+    patch "accept", to: "users#accept"
+    patch "decline", to: "users#decline"
+  end
 end

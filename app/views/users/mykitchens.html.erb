@@ -5,99 +5,82 @@
         <%= link_to "My bookings", dashboard_path, class: "tab-underlined" %>
       </li>
       <li>
-        <%= link_to "My favorites", myfavorites_path, class: "tab-underlined"%> 
+        <%= link_to "My favorites", myfavorites_path, class: "tab-underlined"%>
       </li>
       <li>
         <%= link_to "My kitchens", mykitchens_path, class: "tab-underlined active" %>
-      </li>
-      <li>
-        <%= link_to "Add kitchen", new_kitchen_path, class: "tab-underlined"%> 
       </li>
     </ul>
   </div>
 </div>
 
 <div class="container foot dash">
-  <div class="titles d-flex justify-content-between">
-    
-      <h4>Kitchens</h4>
-  
-      <h4>Requests</h4>
-
-  </div>
   <div class="main-card">
     <div class="kitchen">
-      <% current_user.kitchens.each do |kitchen| %>
-          <div class="card-mykitchen">
-            <div class="card-mykitchen-infos">
-              <%= cl_image_tag kitchen.photo %>
-              <div class="card-details">
-                <h4 class="card-mykitchen-subtitle"><%= kitchen.name %> </h4> 
-                <h5><%= kitchen.address %></h5>
-                <h5><%= kitchen.price %>€/per day</h5>
-              </div>
+      <h4 class="text-center mb-3">Requests</h4>
+    <% @kitchens.each do |kitchen| %>
+      <div class="card-mykitchen">
+        <div class="card-mykitchen-infos">
+          <%= cl_image_tag kitchen.photo %>
+            <div class="card-details">
+              <h4 class="card-mykitchen-subtitle"><%= kitchen.name %> </h4>
+              <p><i><%= kitchen.address %></i></p>
+              <% if kitchen.bookings.count == 0 %>
+                <h6>No bookings yet... don't loose hope :)</h6>
+              <% elsif  kitchen.bookings.count == 1 %>
+                <h6>Booked for a total of <%= kitchen.bookings.count %> time</h6>
+              <% else %>
+                <h6>Booked for a total of <%= kitchen.bookings.count %> times</h6>
+              <% end %>
             </div>
+        </div>
+      </div>
+      <div class='text-center mt-3'>
+        <%= link_to new_kitchen_path do  %>
+          <i title="Add a new kitchen!" data-toggle="tooltip" data-placement="bottom" class="fas fa-plus-square"></i>
+        <% end %>
+      </div>
 
-            <div class="calltoactions">
-            <%= link_to "Edit", edit_kitchen_path(kitchen), class: "btn btn-success" %>
-
-           <%= link_to "Delete", kitchen_path(kitchen), method: :delete, class: "btn btn-danger" %>
-            </div>
-          </div>
-      <% end %>
-    </div>
+    <% end %>    </div>
     <div class="requests">
-
-      <div class="bookink-cards">
+      <h4 class="text-center mb-3">Requests</h4>
+    <% @bookings.flatten.each do |booking| %>
+    <% user = User.find(booking.user_id) %>
     <div class="card-product">
-      <div class="card-product-infos">
-       <img class="avatar" src="https://res.cloudinary.com/dlodtvkez/image/upload/v1566314653/id2.jpg" />
-       <div class="card-details">
-          <h2>Linda Blanca</h2>
-          <h3 class="card-product-subtitle">Rented: Marion's kitchen</h3>
-          <p>Linda has booked <strong>From 12/09/2019 To 25/09/19</strong>.</p>
-       </div>
-      </div>
-      <div class="calltoactions">
-        <a class="btn btn-success" href="#">Accept</a>
-
-        <a class="btn btn-danger" href="#">Cancel</a>
-      </div>
-    </div>
-    <div class="card-product">
-      <div class="card-product-infos">
-        <img src="https://img-0.journaldunet.com/M0Rry_97U_EnJy_IGrIeoxkRFUY=/1280x/smart/7cfa455788b7461ea1782b0b72e31c8f/ccmcms-jdn/2383369.jpg" />
-        <div class="card-details">
-          <h2>Mark Zuckerberg</h2>
-          <h3 class="card-product-subtitle">Rented: Marion's kitchen</h3>
-          <p>Mark has booked <strong>From 25/08/2019 To 26/08/19</strong>.</p>
+        <div class="card-product-infos">
+          <%= cl_image_tag user.photo, class: "avatar" %>
+            <div class="card-details">
+              <% if booking.status == "Pending" %>
+                <div class="text-pending">
+                  <h4><%= user.username %> wants to book your kitchen <%= booking.kitchen.name %></h4>
+                  <h6>For a total of <strong><%= (booking.end_date - booking.start_date).to_i * booking.kitchen.price %>€</strong> from <strong><%= booking.start_date %></strong>  to <strong><%= booking.end_date %></strong> <i>(<%= (booking.end_date - booking.start_date).to_i %>days)</i></h6>
+                </div class="text-confirmed">
+                <% elsif booking.status == "Accepted" %>
+                  <div>
+                    <h4><%= user.username %> has booked your kitchen <%= booking.kitchen.name %></h4>
+                    <h6>For a total of <strong><%= (booking.end_date - booking.start_date).to_i * booking.kitchen.price %>€</strong> from <strong><%= booking.start_date %></strong>  to <strong><%= booking.end_date %></strong><i>(<%= (booking.end_date - booking.start_date).to_i %>days)</i></h6>
+                  </div>
+              <% end %>
+            </div>
         </div>
-      </div>
-      <div class="calltoactions">
-      <a class="btn btn-success" href="#">Accept</a>
-
-      <a class="btn btn-danger" href="#">Cancel</a>
-      </div>
-    </div>
-    <div class="card-product">
-      <div class="card-product-infos">
-       <img class="avatar" src="http://seemetrik.com/wp-content/uploads/2018/02/portrait-sigma-50mm-f14-hsm-canon-eos-5d-mk2-face-Favimcom-473053_zpsd55e8d8e.jpg" />
-       <div class="card-details">
-          <h2>Camille Joffre</h2>
-          <h3 class="card-product-subtitle">Rented: Marion's kitchen</h3>
-          <p>Camille has booked <strong>From 24/08/2019 To 26/08/19</strong>.</p>
-       </div>
-      </div>
-      <div class="calltoactions">
-        <%= link_to "Accept", new_kitchen_path, class: "btn btn-success" %>
-
-       <%= link_to "Cancel", new_kitchen_path, class: "btn btn-danger" %>
+        <div>
+          <% if booking.status == "Pending" %>
+            <div class="d-flex mr-5">
+              <%= link_to booking_accept_path(booking), method: :patch do %>
+                <i class="fas fa-check-circle"></i>
+              <% end %>
+              <%= link_to booking_decline_path(booking) do %>
+                <i class="fas fa-times-circle ml-5"></i>
+              <% end %>
+            </div>
+          <% end %>
         </div>
     </div>
+  <% end %>
   </div>
-      
+
     </div>
   </div>
 </div>
 
- 
+

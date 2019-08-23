@@ -8,7 +8,8 @@ const displayTotalPrice = document.getElementById("total-price");
 
 
 const calculateBooking = () => {
-  start_date.addEventListener('change', (event) => {
+  if (start_date) {
+    start_date.addEventListener('change', (event) => {
     if (end_date.value !== "") {
       const startDateAsDate = new Date(start_date.value.split(' to ')[0]);
       const endDateAsDate = new Date(start_date.value.split(' to ')[1]);
@@ -30,6 +31,7 @@ const calculateBooking = () => {
       displayTotalPrice.innerHTML = `${totalPriceTrue}€`;
     }
   });
+
 }
 
 

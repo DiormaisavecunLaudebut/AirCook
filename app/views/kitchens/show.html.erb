@@ -62,7 +62,8 @@ url('<%= cl_image_path @kitchen.photo, height: 800, width: 1200, crop: :fill %>'
               </div>
           </div>
       </div>
-      <div id="map" class="map-show" data-markers="<%= @marker.to_json %>"
+
+      <div id="map" class="map-show"  data-markers="<%= @marker.to_json %>"
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>", height: 400, width: 600, crop: :fill %>
       </div>
 
