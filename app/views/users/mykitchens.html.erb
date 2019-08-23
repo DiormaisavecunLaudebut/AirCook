@@ -36,7 +36,7 @@
         </div>
       </div>
 
-    <% end %>    
+    <% end %>
       <div class='text-center mt-3'>
         <%= link_to new_kitchen_path do  %>
           <i title="Add a new kitchen!" data-toggle="tooltip" data-placement="bottom" class="fas fa-plus-square"></i>
@@ -59,7 +59,7 @@
                 <% elsif booking.status == "Accepted" %>
                   <div>
                     <h4><%= user.username %> has booked your kitchen <%= booking.kitchen.name %></h4>
-                    <h6>For a total of <strong><%= (booking.end_date - booking.start_date).to_i * booking.kitchen.price %>€</strong> from <strong><%= booking.start_date %></strong>  to <strong><%= booking.end_date %></strong><i>(<%= (booking.end_date - booking.start_date).to_i %>days)</i></h6>
+                    <h6>For a total of <strong><%= booking.price %>€</strong> from <strong><%= booking.start_date %></strong>  to <strong><%= booking.end_date %></strong><i>(<%= (booking.end_date - booking.start_date).to_i %>days)</i></h6>
                   </div>
               <% end %>
             </div>
