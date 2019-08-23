@@ -5,7 +5,8 @@ const bookingResult = document.querySelector("#booking-price-result")
 
 
 const calculateBooking = () => {
-  start_date.addEventListener('change', (event) => {
+  if (start_date) {
+    start_date.addEventListener('change', (event) => {
     if (end_date.value !== "") {
       const startDateAsDate = new Date(start_date.value.split(' to ')[0]);
       const endDateAsDate = new Date(start_date.value.split(' to ')[1]);
@@ -16,8 +17,10 @@ const calculateBooking = () => {
         }
       const bookingPrice = kitchenPrice.dataset.price * dateInDays
       bookingResult.insertAdjacentHTML("beforeend", `<h4>Prix total de la réservation: ${bookingPrice}€</h4>`)
-    }
-  });
+      }
+    });
+  }
+    
 }
 
 
