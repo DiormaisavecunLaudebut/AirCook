@@ -27,9 +27,12 @@
         <div class="status">
           <div>
             <% if Time.now > booking.end_date %>
+            <div class="d-flex align-items-center" style="margin-right:85px;">
               <%= link_to new_kitchen_review_path(booking.kitchen) do %>
-                <i class="fas fa-comment-dots" style="font-size: 40px;"></i>
+                <i class="fas fa-comment-dots" style="font-size: 40px; color:darkgrey"></i>
               <% end %>
+
+            </div>
             <% elsif booking.status == "Accepted" %>
               <h5 class="mr-5 text-success booking-status-accepted"><%= booking.status %></h5>
             <% elsif booking.status == "Declined" %>
