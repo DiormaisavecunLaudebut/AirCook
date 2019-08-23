@@ -18,7 +18,7 @@ class KitchensController < ApplicationController
         lat: kitchen.latitude,
         lng: kitchen.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { kitchen: kitchen }),
-        image_url: helpers.asset_url('kitchen-marker')
+        image_url: helpers.asset_url('https://res.cloudinary.com/dlodtvkez/image/upload/v1566563060/kitchen-marker.png')
         # infoWindow: render_to_string(partial: "info_window", locals: { kitchen: kitchen })
       }
     end
@@ -60,7 +60,7 @@ class KitchensController < ApplicationController
       lat: @kitchen.latitude,
       lng: @kitchen.longitude,
       infoWindow: render_to_string(partial: "info_window", locals: { kitchen: @kitchen }),
-      image_url: helpers.asset_url('kitchen-marker')
+      image_url: helpers.asset_url('https://res.cloudinary.com/dlodtvkez/image/upload/v1566563060/kitchen-marker.png')
     }
   end
 

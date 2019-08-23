@@ -33,7 +33,7 @@ const calculateBooking = () => {
   });
 
 }
-
+}
 
 export { calculateBooking } ;
 
