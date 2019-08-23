@@ -86,6 +86,7 @@ images.first(15).each do |img|
     review = Review.new(
       content: reviews[review_count],
       user: User.all.sample,
+      kitchen: kitchen,
       rating: (1..5).to_a.sample
       )
     review.save
