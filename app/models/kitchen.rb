@@ -3,7 +3,7 @@ class Kitchen < ApplicationRecord
   belongs_to :user
   has_many :bookings
   has_many :likes
-  has_many :reviews, through: :bookings
+  has_many :reviews
   validates :address, :name, :price, :description, presence: true
 
   geocoded_by :address

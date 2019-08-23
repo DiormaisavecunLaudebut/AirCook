@@ -26,7 +26,11 @@
         </div>
         <div class="status">
           <div>
-            <% if booking.status == "Accepted" %>
+            <% if Time.now > booking.end_date %>
+              <%= link_to new_kitchen_review_path(booking.kitchen) do %>
+                <i class="fas fa-comment-dots" style="font-size: 40px;"></i>
+              <% end %>
+            <% elsif booking.status == "Accepted" %>
               <h5 class="mr-5 text-success booking-status-accepted"><%= booking.status %></h5>
             <% elsif booking.status == "Declined" %>
               <h5 class="mr-5 text-danger booking-status"><%= booking.status %></h5>

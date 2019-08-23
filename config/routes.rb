@@ -5,11 +5,11 @@ Rails.application.routes.draw do
   get "dashboard", to: "users#dashboard"
   get "mykitchens", to: "users#mykitchens"
   get "myfavorites", to: "users#myfavorites"
-  resources :reviews, only: [:new, :create]
   resources :kitchens do
     get "like", to: "kitchens#like"
     delete "dislike", to: "kitchens#dislike"
     resources :bookings, only: [:new, :create]
+    resources :reviews, only: [:new, :create]
   end
   resources :bookings, only: [:destroy] do
     patch "accept", to: "users#accept"

@@ -4,7 +4,7 @@
     	<h3>Write a review</h3>
     	<br>
 
-      <%= simple_form_for @review do |f| %>
+      <%= simple_form_for [@kitchen, @review] do |f| %>
         <div class="d-flex justify-content-between">
           <div>
               <%= f.input :precision, collection: (1..5).to_a, label: "Precision" %>
@@ -19,7 +19,7 @@
            </div>
           <%= f.input :content, label: "Comment" %>
           <%= f.submit "Send your review" %>
-       
+
       <% end %>
     </div>
   </div>
