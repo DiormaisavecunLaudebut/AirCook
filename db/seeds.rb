@@ -22,7 +22,7 @@ reviews = []
 profils = []
 reviews_url = [review_url1, review_url2, review_url3, review_url4, review_url5, review_url6]
 
-addresses = ["46 Boulevard de Magenta, Paris", "63 Rue du Faubourg du Temple, Paris", "12 Rue de Richelieu, Paris", "18  rue de Turbigo, Paris", "140 rue du temple, Paris", "2 rue des Goncourt, Paris", "210 boulevard Saint-Germain, Paris", "39 rue de Varenne, Paris", "Place Saint-Suplice, Paris", "11 rue Racine, Paris", "22 rue Monge, Paris", "29 rue Descartes, Paris", "10 rue Amyot, Paris", "210 boulebard Raspail, Paris", "80 rue du Cotentin, Paris"]
+addresses = ["46 Boulevard de Magenta, Paris", "63 Rue du Faubourg du Temple, Paris", "12 Rue de Richelieu, Paris", "18  rue de Turbigo, Paris", "140 rue du temple, Paris", "2 rue des Goncourt, Paris", "210 boulevard Saint-Germain, Paris", "39 rue de Varenne, Paris", "Place Saint-Sulpice, Paris", "11 rue Racine, Paris", "22 rue Monge, Paris", "29 rue Descartes, Paris", "10 rue Amyot, Paris", "210 boulevard Raspail, Paris", "80 rue du Cotentin, Paris"]
 
 puts "Scrapping amazing profil pictures..."
 html_file = open(profil_pic_url).read
