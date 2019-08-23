@@ -51,6 +51,17 @@
   display: flex;
   flex-direction: column;
   margin-left:20px;
+  h6 {
+    color: #484848;
+    margin-top: 8px;
+  }
+  h4 {
+    margin-bottom: 4px;
+  }
+  p {
+    margin: 0;
+    font-size: 14px;
+  }
 }
 
 .calltoactions {
@@ -83,5 +94,14 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+}
+
+.booking-status {
+  margin-right: 80px !important;
+}
+
+.booking-status-accepted {
+  margin-right: 80px !important;
+  color: #018488 !important;
 }
 
