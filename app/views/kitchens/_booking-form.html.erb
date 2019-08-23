@@ -5,7 +5,13 @@
     <%= simple_form_for([@kitchen, @booking], data: {price: "#{@kitchen.price}"}) do |f| %>
       <%= f.input :start_date, placeholder: "Date of arrival...", label: "From:", as: :string, required: false, input_html: {id: "start_date"} %>
       <%= f.input :end_date, placeholder: "Date of departure...", label: "To:", as: :string, required: false, input_html: {id: "end_date"}  %>
-    <div id="booking-price-result">
+    <div id="booking-price-result" class="d-none" style="margin-bottom: 8px">
+      <ul style="padding: 0px">
+        <li class="booking-list list-group-item d-flex justify-content-between align-items-center" id="price-per-night"> <span> <%= @kitchen.price %>€ x <span id="number-of-days"></span> </span> <span id="price-result"></span></li>
+        <li class="booking-list list-group-item d-flex justify-content-between align-items-center"><span>Cleaning charge <i data-toggle="tooltip" data-placement="right" class="far fa-question-circle" title="We clean the kitchen after you go 🧹 "> </i></span> <span>5€</span></li>
+        <li class="booking-list list-group-item d-flex justify-content-between align-items-center"><span>Service charge <i data-toggle="tooltip" data-placement="right" class="far fa-question-circle" title="This helps us maintain our services so awesome 🚀"> </i></span> <span>3€</span></li>
+        <li class="booking-list list-group-item d-flex justify-content-between align-items-center" style="font-weight: 600">Prix total <span id="total-price"></span></li>
+      </ul>
     </div>
       <%= f.submit "Book me!", class: 'btn btn-lior book-btn my-1' %>
     <% end %>

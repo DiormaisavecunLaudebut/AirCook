@@ -10,9 +10,6 @@
       <li>
         <%= link_to "My kitchens", mykitchens_path, class: "tab-underlined" %>
       </li>
-      <li>
-        <%= link_to "Add kitchen", new_kitchen_path, class: "tab-underlined"%>
-      </li>
     </ul>
   </div>
 
@@ -23,13 +20,19 @@
           <%= cl_image_tag booking.kitchen.photo %>
             <div class="card-details">
               <h4 class="card-mykitchen-subtitle"><%= booking.kitchen.name %> </h4>
-              <h5><%= booking.kitchen.address %></h5>
-              <h5>TOTAL PRICE€ + dates</h5>
+              <p><i><%= booking.kitchen.address %></i></p>
+              <h6>Total of <strong><%= (booking.end_date - booking.start_date).to_i * booking.kitchen.price %>€</strong> from <strong><%= booking.start_date %></strong>  to <strong><%= booking.end_date %></strong></h6>
             </div>
         </div>
         <div class="status">
           <div>
-            <h5 class="mr-5">Pending</h5>
+            <% if booking.status == "Accepted" %>
+              <h5 class="mr-5 text-success booking-status-accepted"><%= booking.status %></h5>
+            <% elsif booking.status == "Declined" %>
+              <h5 class="mr-5 text-danger booking-status"><%= booking.status %></h5>
+            <% else %>
+              <h5 class="mr-5 text-warning booking-status"><%= booking.status %></h5>
+            <% end %>
               <button type ="button" class="fas fa-times" data-toggle="modal" data-target="#confirm"></button>
               <%= render 'modal_confirm', booking: booking %>
           </div>
