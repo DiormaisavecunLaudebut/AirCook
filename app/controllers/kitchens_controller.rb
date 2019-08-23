@@ -102,4 +102,5 @@ class KitchensController < ApplicationController
       :photo
     )
   end
+
 end
