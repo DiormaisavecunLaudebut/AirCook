@@ -12,4 +12,12 @@ class UserPolicy < ApplicationPolicy
   def myfavorites?
     true
   end
+
+  def accept
+    true
+  end
+
+  def decline
+    true
+  end
 end

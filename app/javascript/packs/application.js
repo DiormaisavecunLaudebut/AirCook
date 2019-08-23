@@ -9,6 +9,7 @@ import { initStarRating } from '../plugins/init_star_rating';
 
 
 
+
 previewImageOnFileSelect();
 initMapbox();
 calculateBooking();

@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2019_08_23_121409) do
 
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -23,6 +24,7 @@ ActiveRecord::Schema.define(version: 2019_08_23_121409) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "price"
+    t.string "status", default: "Pending"
     t.index ["kitchen_id"], name: "index_bookings_on_kitchen_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
