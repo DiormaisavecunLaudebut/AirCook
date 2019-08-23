@@ -50,3 +50,22 @@
 .fa-flag {
   color: #484848;
 }
+
+.booking-list {
+  color: #484848;
+  font-size: 14px;
+  font-weight: 400;
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 0;
+  padding: 10px 0px 10px 0px;
+}
+
+#price-per-night {
+  border-top: 0;
+}
+
+.fa-question-circle:hover {
+  color: black;
+}
