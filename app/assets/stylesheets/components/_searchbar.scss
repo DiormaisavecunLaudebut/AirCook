@@ -1,0 +1,33 @@
+.searchbar {
+  border: 0;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+
+.form-control:focus {
+  border-color: white !important;
+  border: 0 !important;
+  outline: white !important;
+}
+
+.form-inline .form-control {
+  width: 300px;
+  height: 50px;
+}
+
+.fa-search {
+  font-size: 23px;
+  color: #484848;
+}
+
+.fakesearch {
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  border-radius: 4px;
+}
+
+.fakesearch:hover {
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2), 0 4px 12px rgba(26, 26, 29, 0.08) !important;
+  transition: box-shadow 200ms ease-in !important;
+}

@@ -11,8 +11,15 @@
     <%= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body>
+
     <%= render 'shared/flashes' %>
-    <%= render 'shared/navbar' %>
+
+    <% if current_page?(kitchens_path) %>
+      <%= render "shared/navbar-index" %>
+    <% else %>
+      <%= render 'shared/navbar' %>
+    <% end %>
+
     <%= yield %>
 
     <%= javascript_include_tag 'application' %>

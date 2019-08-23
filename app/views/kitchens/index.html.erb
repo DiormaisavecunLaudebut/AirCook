@@ -1,17 +1,3 @@
-
-<div class="container d-flex justify-content-center">
-<form class="form-inline" >
-<%= form_tag kitchens_path, method: :get do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Your address"
-  %>
-  <%= submit_tag "Find a kitchen nearby", class: "btn btn-primary" %>
-<% end %>
-</form>
-</div>
-
  <div class="content d-flex">
   <div class="card-container">
     <div class="card-kitchen-index row">
